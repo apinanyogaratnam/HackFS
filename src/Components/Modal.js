@@ -3,6 +3,7 @@ import { X } from 'react-feather';
 import Draggable from 'react-draggable';
 import { ModalContext } from '../Contexts/ModalProvider';
 import livepeer_data from '../livepeer-integration/livepeer_data';
+import '../css/window.scss';
 
 const Modal = () => {
   return (
@@ -32,7 +33,7 @@ const Modal = () => {
                       >
                         Get Extension ID
                       </button>
-                      <h4>
+                      <h4 className="text">
                         Connect via OBS Studio:
                         <br />
                         Set OBS settings: settings>stream set service to custom
