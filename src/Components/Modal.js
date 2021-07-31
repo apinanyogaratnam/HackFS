@@ -27,12 +27,13 @@ const Modal = () => {
                     </div>
                     <div className="modal-content">
                       <h3>{extensionId}</h3>
-                      <button
+                      {/* <button
                         onClick={getExtensionId}
                         className="modal-button"
                       >
                         Get Extension ID
-                      </button>
+                      </button> */}
+                      <button className="some-button">Some Button to do Something</button>
                       <h4 className="text">
                         Connect via OBS Studio:
                         <br />
