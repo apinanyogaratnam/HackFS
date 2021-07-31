@@ -4,6 +4,8 @@ import Draggable from 'react-draggable';
 import { ModalContext } from '../Contexts/ModalProvider';
 import livepeer_data from '../livepeer-integration/livepeer_data';
 import '../css/window.scss';
+import ShakaPlayer from 'shaka-player-react';
+import 'shaka-player/dist/controls.css';
 
 const Modal = () => {
   return (
@@ -43,6 +45,7 @@ const Modal = () => {
                         <br />
                         set stream key to: {livepeer_data.streamKey}
                       </h4>
+                      <ShakaPlayer autoPlay src="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
                     </div>
                   </div>
                 </>
