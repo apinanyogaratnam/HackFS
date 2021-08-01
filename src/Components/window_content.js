@@ -1,5 +1,5 @@
 import React from 'react';
-import livepeer_data from '../livepeer-integration/livepeer_data';
+import live_peer_data from '../live_peer_integration/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
@@ -12,9 +12,9 @@ const WindowContent = () => {
                 <br />
                 Set OBS settings: settings {'>'} stream. set service to custom
                 <br />
-                set server to: {livepeer_data.livepeerServerUrl}
+                set server to: {live_peer_data.live_peerServerUrl}
                 <br />
-                set stream key to: {livepeer_data.streamKey}
+                set stream key to: {live_peer_data.streamKey}
             </h4>
             <ShakaPlayer autoPlay src="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
         </div>
