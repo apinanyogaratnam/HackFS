@@ -10,7 +10,7 @@ const WindowContent = () => {
             <h4 className="text">
                 Connect via OBS Studio:
                 <br />
-                Set OBS settings: settings>stream. set service to custom
+                Set OBS settings: settings {'>'} stream. set service to custom
                 <br />
                 set server to: {livepeer_data.livepeerServerUrl}
                 <br />
