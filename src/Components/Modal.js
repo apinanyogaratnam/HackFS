@@ -6,6 +6,7 @@ import livepeer_data from '../livepeer-integration/livepeer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
+import WindowContent from './window_content';
 
 const Modal = () => {
   return (
@@ -39,16 +40,7 @@ const Modal = () => {
                         Get Extension ID
                       </button> */}
                       {/* <button className="some-button">Some Button to do Something</button> */}
-                      <h4 className="text">
-                        Connect via OBS Studio:
-                        <br />
-                        Set OBS settings: settings>stream. set service to custom
-                        <br />
-                        set server to: {livepeer_data.livepeerServerUrl}
-                        <br />
-                        set stream key to: {livepeer_data.streamKey}
-                      </h4>
-                      <ShakaPlayer autoPlay src="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
+                      <WindowContent />
                     </div>
                   </div>
                 </>
