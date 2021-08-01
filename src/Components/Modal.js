@@ -23,9 +23,9 @@ const Modal = () => {
                 <>
                   <div className="modal-body">
                     <div className="modal-handle">
-                      <div className="modal-close-button">
+                      {/* <div className="modal-close-button">
                         <X color="#5d6484" size="14" />
-                      </div>
+                      </div> */}
                     </div>
                     <div className="modal-content">
                       <h3>{extensionId}</h3>
@@ -35,11 +35,11 @@ const Modal = () => {
                       >
                         Get Extension ID
                       </button> */}
-                      <button className="some-button">Some Button to do Something</button>
+                      {/* <button className="some-button">Some Button to do Something</button> */}
                       <h4 className="text">
                         Connect via OBS Studio:
                         <br />
-                        Set OBS settings: settings>stream set service to custom
+                        Set OBS settings: settings>stream. set service to custom
                         <br />
                         set server to: {livepeer_data.livepeerServerUrl}
                         <br />
