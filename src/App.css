@@ -15,10 +15,10 @@
   background: rgba(30, 32, 44, .99);
   min-width: 150px;
   height: initial;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
   z-index: 9999;
-  border: 1px solid #7a809b;
+  /* border: 1px solid #7a809b; */
 }
 
 .modal-window-inner-border {
@@ -26,7 +26,7 @@
   height: initial;
   display: flex;
   border-radius: 3px;
-  box-shadow: 0 0 0 0.4px #222132;
+  /* box-shadow: 0 0 0 0.4px #222132; */
 }
 
 .modal-window-inner-border:before {
@@ -41,8 +41,9 @@
 
 .modal-handle {
   cursor: move;
+  margin-top: 10px;
   height: 15px;
-  border-radius: 3px;
+  border-radius: 20px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -58,9 +59,9 @@
   padding: 0.5rem .5rem 2.5rem .5rem;
   font-size: 14px;
   line-height: 24px;
-  height: 275px;
+  height: 450px;
   width: 400px;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .modal-content-drawer-handle {

@@ -23,9 +23,12 @@ const Modal = () => {
                 <>
                   <div className="modal-body">
                     <div className="modal-handle">
-                      {/* <div className="modal-close-button">
+                      <div className="modal-close-button">
+                        {/* <a onClick={() => null}>
                         <X color="#5d6484" size="14" />
-                      </div> */}
+                        </a> */}
+                      </div>
+                      <h6 className="handle-text">Click to drag</h6>
                     </div>
                     <div className="modal-content">
                       <h3>{extensionId}</h3>
