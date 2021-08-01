@@ -12,7 +12,7 @@ const WindowContent = () => {
                 <br />
                 Set OBS settings: settings {'>'} stream. set service to custom
                 <br />
-                set server to: {live_peer_data.live_peerServerUrl}
+                set server to: {live_peer_data.livePeerServerUrl}
                 <br />
                 set stream key to: {live_peer_data.streamKey}
             </h4>
