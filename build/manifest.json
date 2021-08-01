@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "React Chrome Extension Boilerplate",
-  "description": "A template of a React Chrome extension",
+  "name": "WeMeta Live Streaming Chrome Extension",
+  "description": "A chrome extension for users to live-stream their parcels in the meta-verse",
   "version": "1.0.0",
-  "homepage_url": "https://stylestash.dev",
+  "author": "WeMeta Hackathon Team",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
