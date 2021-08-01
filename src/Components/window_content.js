@@ -7,6 +7,11 @@ import 'shaka-player/dist/controls.css';
 const WindowContent = () => {
     return (
         <div>
+            <form>
+                <input placeholder="Enter API Key">
+                </input>
+                <h6>Get API key from </h6>
+            </form>
             <h4 className="text">
                 Connect via OBS Studio:
                 <br />
