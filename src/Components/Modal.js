@@ -2,10 +2,7 @@ import React from 'react';
 import { X } from 'react-feather';
 import Draggable from 'react-draggable';
 import { ModalContext } from '../Contexts/ModalProvider';
-import livepeer_data from '../livepeer-integration/livepeer_data';
 import '../css/window.scss';
-import ShakaPlayer from 'shaka-player-react';
-import 'shaka-player/dist/controls.css';
 import WindowContent from './window_content';
 
 const Modal = () => {
