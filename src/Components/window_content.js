@@ -6,6 +6,7 @@ import 'shaka-player/dist/controls.css';
 import LivePeerAPI from '../live_peer_integration/live_peer_api';
 
 const WindowContent = () => {
+    const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
 
     return (
         <div>
@@ -16,9 +17,9 @@ const WindowContent = () => {
                 <br />
                 set server to: {live_peer_data.livePeerServerUrl}
                 <br />
-                <LivePeerAPI />
+                <LivePeerAPI className="live-peer-data"/>
             </h4>
-            <ShakaPlayer autoPlay src="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
+            <ShakaPlayer autoPlay src="" />
         </div>
     );
 }
