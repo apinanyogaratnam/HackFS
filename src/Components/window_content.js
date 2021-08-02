@@ -6,25 +6,9 @@ import 'shaka-player/dist/controls.css';
 import LivePeerAPI from '../live_peer_integration/live_peer_api';
 
 const WindowContent = () => {
-    const [api, setApi] = useState('');
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        if (!api) {
-            alert("Please enter an api key");
-        }
-
-        // call api here
-    }
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
-                <input name="api" value={api} placeholder="Enter API Key" onChange={(e) => setApi(e.target.value)}>
-                </input>
-                <h6>Get API key from HERE</h6>
-            </form>
             <h4 className="text">
                 <LivePeerAPI />
                 Connect via OBS Studio:
@@ -37,7 +21,7 @@ const WindowContent = () => {
             </h4>
             <ShakaPlayer autoPlay src="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
         </div>
-    )
+    );
 }
 
 export default WindowContent;
