@@ -1,5 +1,3 @@
-import axios from 'axios';
-import Stream from 'livepeer-nodejs/src/stream/stream';
 import React, { useState, useEffect } from 'react'
 
 const LivePeerAPI = () => {
