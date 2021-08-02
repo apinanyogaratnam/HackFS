@@ -5,11 +5,22 @@ import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
 
 const WindowContent = () => {
+    const [api, setApi] = useState('');
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        if (!api) {
+            alert("Please enter an api key");
+        }
+
+        // call api here
+    }
+
     return (
         <div>
-            <form>
-                {/* start here to allow user to enter their api */}
-                <input placeholder="Enter API Key">
+            <form onSubmit={onSubmit}>
+                <input name="api" value={api} placeholder="Enter API Key" onChange={(e) => setApi(e.target.value)}>
                 </input>
                 <h6>Get API key from HERE</h6>
             </form>
