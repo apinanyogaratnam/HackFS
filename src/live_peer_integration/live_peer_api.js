@@ -8,8 +8,8 @@ const LivePeerAPI = () => {
     const api_key = process.env.REACT_APP_API_KEY;
     const livepeerObject = new Livepeer(api_key);
 
-    const stream = async () => {
-        await livepeerObject.Stream.create({
+    const stream = () => {
+        livepeerObject.Stream.create({
             "name": "test_stream", 
             "profiles": [
                 {
@@ -34,13 +34,14 @@ const LivePeerAPI = () => {
                     "height": 360
                 },
             ]
-        });
+        }).then(res => {
+            console.log(res);
+            setData(res);
+        })
     }
 
     useEffect(() => {
-        const someData = stream();
-        setData(someData);
-        console.log(someData);
+        stream();
     }, [])
 
     return (
