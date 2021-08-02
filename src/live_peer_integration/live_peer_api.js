@@ -5,16 +5,16 @@ const LivePeerAPI = () => {
     const [response, setResponse] = useState([]);
     const base_url = "https://livepeer.com/api/";
     const post_url = base_url + "stream";
-    const example_api_key = "b09a2a15-05c4-49ec-8807-ac87de9e6e0d";
+    const example_api_key = "";
     const header = {
         headers: {
             "content-type": "application/json",
-            authorization: "Bearer " + example_api_key
+            authorization: `Bearer ${example_api_key}`
         }
     }
     const profiles = {
         name: "example_stream",
-        "profiles": [
+        profiles: [
             {
                 "name": "720p",
                 "bitrate": 2000000,
@@ -46,8 +46,6 @@ const LivePeerAPI = () => {
         ).then(res => {
             console.log(res);
             setResponse(res);
-        }).catch(err => {
-            console.log(err);
         })
     }
 
