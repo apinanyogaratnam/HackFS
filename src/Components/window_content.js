@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import live_peer_data from '../live_peer_integration/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
+import LivePeerAPI from '../live_peer_integration/live_peer_api';
 
 const WindowContent = () => {
     const [api, setApi] = useState('');
@@ -25,6 +26,7 @@ const WindowContent = () => {
                 <h6>Get API key from HERE</h6>
             </form>
             <h4 className="text">
+                <LivePeerAPI />
                 Connect via OBS Studio:
                 <br />
                 Set OBS settings: settings {'>'} stream. set service to custom
