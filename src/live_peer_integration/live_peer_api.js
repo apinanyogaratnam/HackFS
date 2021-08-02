@@ -1,7 +1,9 @@
 import axios from 'axios';
+import Stream from 'livepeer-nodejs/src/stream/stream';
 import React, { useState, useEffect } from 'react'
 
 const LivePeerAPI = () => {
+    const [data, setData] = useState([]);
     const Livepeer = require('livepeer-nodejs');
     const api_key = process.env.REACT_APP_API_KEY;
     const livepeerObject = new Livepeer(api_key);
@@ -35,7 +37,11 @@ const LivePeerAPI = () => {
         });
     }
 
-    console.log(stream.name);
+    useEffect(() => {
+        const someData = stream();
+        setData(someData);
+        console.log(someData);
+    }, [])
 
     return (
         <div>
