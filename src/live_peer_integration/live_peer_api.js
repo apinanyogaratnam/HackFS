@@ -31,7 +31,8 @@ const LivePeerAPI = () => {
                     "width": 640,
                     "height": 360
                 },
-            ]
+            ],
+            "record": true
         }).then(res => {
             console.log(res);
             setData(res);
