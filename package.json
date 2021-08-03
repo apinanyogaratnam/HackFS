@@ -6,13 +6,15 @@
     "axios": "^0.21.1",
     "jquery": "3.4.1",
     "livepeer-nodejs": "^1.0.3",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-draggable": "4.0.3",
     "react-feather": "2.0.3",
     "react-scripts": "3.1.2",
+    "redux": "^4.1.1",
     "sass": "^1.37.0",
-    "shaka-player-react": "^1.1.2"
+    "shaka-player-react": "^1.1.2",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
