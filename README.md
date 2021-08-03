@@ -14,3 +14,5 @@ TODO:
 - add link to create API key to connect
 - style input box
 - rearrange content on window
+
+[LICENSE](LICENSE)
