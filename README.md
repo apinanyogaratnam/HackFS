@@ -9,6 +9,13 @@ ETH Global's HackFS
 
 [Video Player Repo](https://github.com/google/shaka-player)
 
+## How to run locally:
+### 1. `git clone https://github.com/the-metaverse/hackathon.git`
+### 2. change directory to hackathon
+### 3. create livepeer api key
+### 4. `npm i`
+### 5. `npm start`
+
 TODO: 
 - change text to link (visit site to set up OBS)
 - add link to create API key to connect
