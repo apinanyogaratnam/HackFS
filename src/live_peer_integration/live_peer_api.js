@@ -25,7 +25,7 @@ const LivePeerAPI = () => {
                     "height": 480
                 },
                 {
-                    "name": "36p",
+                    "name": "360p",
                     "bitrate": 500000,
                     "fps": 30,
                     "width": 640,
