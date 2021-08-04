@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import RecordRTC, { RecordRTCPromisesHandler } from 'recordrtc';
 
 const MainRecorder = () => {
     const [recorder, setRecorder] = useState(null);
