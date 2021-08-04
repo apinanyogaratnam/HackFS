@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "landpeer",
+  "name": "Landpeer",
   "description": "A chrome extension for users to live-stream their parcels in the meta-verse",
   "version": "1.0.0",
   "author": "WeMeta Hackathon Team",
@@ -11,7 +11,7 @@
   },
   "browser_action": {
     "default_icon": "favicon.png",
-    "default_title": "React Chrome Extension Boilerplate"
+    "default_title": "Landpeer"
   },
   "background": {
     "scripts": ["./jquery.js", "background.js"]
