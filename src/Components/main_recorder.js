@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import RecordRTC, { RecordRTCPromisesHandler } from 'recordrtc';
+import RecordRTC, { invokeSaveAsDialog, RecordRTCPromisesHandler } from 'recordrtc';
+import { saveAs } from 'file-saver';
 
 const MainRecorder = () => {
     // using states to store data relatively depending on user's actions
@@ -34,6 +35,12 @@ const MainRecorder = () => {
             setVideoUrlBlob(blob);
             setStream(null);
             setRecorder(null);
+        }
+    }
+
+    const downloadVideo = () => {
+        if (videoBlob) {
+            saveAs(videoBlob, "recording.webm");
         }
     }
 

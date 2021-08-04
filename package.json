@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
+    "file-saver": "^2.0.5",
     "jquery": "3.4.1",
     "livepeer-nodejs": "^1.0.3",
     "react": "^16.9.0",
