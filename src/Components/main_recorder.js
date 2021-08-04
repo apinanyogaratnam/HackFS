@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RecordRTC, { invokeSaveAsDialog, RecordRTCPromisesHandler } from 'recordrtc';
+import { RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
 import { Player } from 'video-react';
 import "video-react/dist/video-react.css"; // import css
