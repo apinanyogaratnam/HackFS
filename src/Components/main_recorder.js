@@ -11,7 +11,7 @@ const MainRecorder = () => {
     // function to start recording video and audio
     const startRecording = async () => {
         let mediaDevices = navigator.mediaDevices;
-        const stream = await mediaDevices.getUserMedia({video: true, audio: true});
+        const stream = await mediaDevices.getDisplayMedia({video: true, audio: false});
         const recorder = new RecordRTCPromisesHandler(stream, {
             type: 'video'
         });
