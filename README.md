@@ -13,6 +13,8 @@ ETH Global's HackFS
 
 [Audio/Video Repo](https://github.com/muaz-khan/RecordRTC)
 
+[File saver Repo](https://github.com/eligrey/FileSaver.js)
+
 ## How to run locally:
 ### 1. `git clone https://github.com/the-metaverse/hackathon.git`
 ### 2. change directory to hackathon
