@@ -9,6 +9,7 @@ import VideoPlayer from './video_player.js';
 import MainRecorder from './main_recorder';
 
 const WindowContent = () => {
+    // url to play in the video player
     const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
 
     return (
