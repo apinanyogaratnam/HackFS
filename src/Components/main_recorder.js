@@ -18,6 +18,17 @@ const MainRecorder = () => {
         setVideoUrlBlob(null);
     }
 
+    const stopRecording = async () => {
+        if (recorder) {
+            await recorder.stopRecording();
+            const blob = await recorder.getBlob();
+            stream.stop()
+            setVideoUrlBlob(blob);
+            setStream(null);
+            setRecorder(null);
+        }
+    }
+
     return (
         <div>
             <button>Start streaming</button>
