@@ -38,7 +38,7 @@ const MainRecorder = () => {
         }
     }
 
-    const downloadVideo = () => {
+    const downloadRecording = () => {
         if (videoBlob) {
             saveAs(videoBlob, "recording.webm");
         }
@@ -48,6 +48,7 @@ const MainRecorder = () => {
         <div>
             <button onClick={startRecording}>Start streaming</button>
             <button onClick={stopRecording}>Stop streaming</button>
+            <button onClick={downloadRecording}>Download Stream</button>
         </div>
     )
 }
