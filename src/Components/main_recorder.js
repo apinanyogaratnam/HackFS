@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import RecordRTC, { invokeSaveAsDialog, RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
+import { Player } from 'video-react';
+import "video-react/dist/video-react.css"; // import css
 
 const MainRecorder = () => {
     // using states to store data relatively depending on user's actions
@@ -49,6 +51,7 @@ const MainRecorder = () => {
             <button onClick={startRecording}>Start streaming</button>
             <button onClick={stopRecording}>Stop streaming</button>
             <button onClick={downloadRecording}>Download Stream</button>
+            <Player src={window.URL.createObjectURL(videoBlob)} />
         </div>
     )
 }
