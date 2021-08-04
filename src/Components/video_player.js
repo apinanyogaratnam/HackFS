@@ -5,6 +5,7 @@ import "video-react/dist/video-react.css"; // import css
 const VideoPlayer = () => {
     return (
         <div>
+            {/* React component for video player */}
             <Player
                 playsInline
                 poster="/assets/poster.png"
