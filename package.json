@@ -11,6 +11,7 @@
     "react-draggable": "4.0.3",
     "react-feather": "2.0.3",
     "react-scripts": "3.1.2",
+    "recordrtc": "^5.6.2",
     "redux": "^4.1.1",
     "sass": "^1.37.0",
     "shaka-player-react": "^1.1.2",
