@@ -9,6 +9,8 @@ ETH Global's HackFS
 
 [Video Player Repo](https://github.com/google/shaka-player)
 
+[Alt Video Player Repo](https://github.com/video-react/video-react)
+
 ## How to run locally:
 ### 1. `git clone https://github.com/the-metaverse/hackathon.git`
 ### 2. change directory to hackathon

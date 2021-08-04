@@ -8,6 +8,7 @@ const MainRecorder = () => {
 
     return (
         <div>
+            <button>Start streaming</button>
             
         </div>
     )
