@@ -40,7 +40,7 @@ const MainRecorder = () => {
     return (
         <div>
             <button onClick={startRecording()}>Start streaming</button>
-            <button onClick={stopStreaming()}></button>
+            <button onClick={stopStreaming()}>Stop streaming</button>
         </div>
     )
 }
