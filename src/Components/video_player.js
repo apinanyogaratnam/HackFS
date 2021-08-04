@@ -10,11 +10,11 @@ const VideoPlayer = () => {
     return (
         <div>
             {/* React component for video player */}
-            <Player
+            {/* <Player
                 playsInline
                 poster="/assets/poster.png"
                 src={some_youtube_url}
-            />
+            /> */}
         </div>
     );
 }
