@@ -37,13 +37,20 @@ const MainRecorder = () => {
             setVideoUrlBlob(blob);
             setStream(null);
             setRecorder(null);
+            
+            return;
         }
+
+        alert("No video streaming currently to stop");
     }
 
     const downloadRecording = () => {
         if (videoBlob) {
             saveAs(videoBlob, "recording.webm");
+            return;
         }
+
+        alert("No video streamed to download");
     }
 
     return (
@@ -51,9 +58,9 @@ const MainRecorder = () => {
             <button onClick={startRecording}>Start streaming</button>
             <button onClick={stopRecording}>Stop streaming</button>
             <button onClick={downloadRecording}>Download Stream</button>
-            <Player src={window.URL.createObjectURL(videoBlob)} />
+            {!!videoBlob && (<Player src={window.URL.createObjectURL(videoBlob)} />)}
         </div>
-    )
+    );
 }
 
 export default MainRecorder;
