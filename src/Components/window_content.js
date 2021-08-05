@@ -31,6 +31,7 @@ const WindowContent = () => {
     
     // using state to store data relatively (livepeer response data)
     const [data, setData] = useState([]);
+    const [allStreams, setAllStreams] = useState(null);
 
     // create a stream using livepeer's api
     const startStream = () => {
@@ -56,6 +57,18 @@ const WindowContent = () => {
         });
     }
 
+    const someData = async () => {
+        const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
+
+        const listOfAllStreams = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${apiKey}`
+            }
+        });
+        console.log(listOfAllStreams);
+        setAllStreams(listOfAllStreams);
+    }
+
     return (
         <div>
             <h4 className="text">
@@ -71,7 +84,7 @@ const WindowContent = () => {
                 <p>Stream id: {data.id}</p>
                 <p>Link URL: https://mdw-cdn.livepeer.com/recordings/{data.id}/source.mp4</p>
             </h4>
-            <button onClick={stopStream}>Stop Streaming</button>
+            <button onClick={someData}>Stop Streaming</button>
             <VideoPlayer playsInLine src={`https://mdw-cdn.livepeer.com/recordings/${data.id}/source.mp4`} />
         </div>
     );
