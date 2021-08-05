@@ -15,18 +15,63 @@ import downloadRecording from './download_recoding';
 
 // imports for livepeer api
 import stopStream from '../Livepeer/live_peer_functions';
-// import { data } from 'browserslist';
 
 const WindowContent = () => {
+    // livepeer api package
+    const Livepeer = require('livepeer-nodejs');
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const livepeerObject = new Livepeer(apiKey);
+
     // url to play in the video player
     const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
     var live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
     live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/bbc3ca03-e570-4c55-b97d-afc2aa41fdc8/source.mp4";
 
-    // using states to store data relatively depending on user's actions
+    // using states to store data relatively depending on user's actions (screen recorder)
     const [recorder, setRecorder] = useState(null);
     const [stream, setStream] = useState(null);
     const [videoBlob, setVideoUrlBlob] = useState(null);
+
+    // using state to store data relatively (livepeer response data)
+    const [data, setData] = useState([]);
+
+    // create a stream using livepeer's api
+    const startStream = () => {
+        livepeerObject.Stream.create({
+            "name": "test_stream", 
+            "profiles": [
+                {
+                    "name": "720p",
+                    "bitrate": 2000000,
+                    "fps": 30,
+                    "width": 1280,
+                    "height": 720
+                },
+                {
+                    "name": "480p",
+                    "bitrate": 1000000,
+                    "fps": 30,
+                    "width": 854,
+                    "height": 480
+                },
+                {
+                    "name": "360p",
+                    "bitrate": 500000,
+                    "fps": 30,
+                    "width": 640,
+                    "height": 360
+                },
+            ],
+            "record": true
+        }).then(res => {
+            console.log(res);
+            setData(res);
+        })
+    }
+
+    useEffect(() => {
+        startStream();
+    }, []);
 
     // function to start recording
     const startRecord = () => {
