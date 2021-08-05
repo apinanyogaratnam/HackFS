@@ -49,6 +49,17 @@ const WindowContent = () => {
         startStream();
     }, []);
 
+
+    const stopStream = () => {
+        const url = `https://livepeer.com/api/stream/${data.id}/terminate`;
+    
+        axios.delete(url, {
+            headers: {
+                Authorization: `Bearer ${apiKey}`
+            },
+        });
+    }
+
     // function to start recording
     const startRecord = () => {
         const data = startRecording();
@@ -94,8 +105,8 @@ const WindowContent = () => {
             <div className="bottom-container">
 
             </div> */}
-            <button>Start Streaming</button>
-            <button>Stop Streaming</button>
+            {/* <button >Start Streaming</button> */}
+            <button onClick={stopStream}>Stop Streaming</button>
             <VideoPlayer playsInLine src={live_peer_demo_url} />
             {/* <MainRecorder /> */}
             {/* <ShakaPlayer autoPlay src="" /> */}
