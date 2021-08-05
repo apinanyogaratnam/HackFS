@@ -11,6 +11,7 @@ import { RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
 import startRecording from './start_recording';
 import stopRecording from './stop_recording';
+import downloadRecording from './download_recoding';
 
 // imports for livepeer api
 import stopStream from '../Livepeer/live_peer_functions';
@@ -36,20 +37,15 @@ const WindowContent = () => {
 
     // function to stop recording
     const stopRecord = () => {
-        const data = stopRecording();
+        const data = stopRecording({ stream, recorder });
         setRecorder(data.recorder);
         setStream(data.stream);
         setVideoUrlBlob(data.videoUrlBlob);
     }
 
 
-    const downloadRecording = () => {
-        if (videoBlob) {
-            saveAs(videoBlob, "recording.webm");
-            return;
-        }
-
-        alert("No video streamed to download");
+    const downloadRecord = () => {
+        downloadRecording({ videoBlob });
     }
 
     return (

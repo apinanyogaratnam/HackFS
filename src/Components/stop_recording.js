@@ -1,15 +1,10 @@
-import { RecordRTCPromisesHandler } from 'recordrtc';
-
-const stopRecording = async () => {
+const stopRecording = async ({ stream, recorder }) => {
     if (recorder) {
         await recorder.stopRecording();
         const blob = await recorder.getBlob();
         stream.stop()
 
         // storing the data in the states
-        setVideoUrlBlob(blob);
-        setStream(null);
-        setRecorder(null);
         
         return {"recorder": null, "stream": null, "videoUrlBlob": blob};
     }
