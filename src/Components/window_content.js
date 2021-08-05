@@ -10,6 +10,7 @@ import MainRecorder from './main_recorder';
 import { RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
 import startRecording from './start_recording';
+import stopRecording from './stop_recording';
 
 // imports for livepeer api
 import stopStream from '../Livepeer/live_peer_functions';
@@ -25,31 +26,22 @@ const WindowContent = () => {
     const [stream, setStream] = useState(null);
     const [videoBlob, setVideoUrlBlob] = useState(null);
 
-    // function to start recording video and audio
-    const record = () => {
+    // function to start recording
+    const startRecord = () => {
         const data = startRecording();
         setRecorder(data.recorder);
         setStream(data.stream);
-        setVideoUrlBlob(data.setVideoUrlBlob);
+        setVideoUrlBlob(data.videoUrlBlob);
     }
 
-    // function to stop recording audio and video
-    const stopRecording = async () => {
-        if (recorder) {
-            await recorder.stopRecording();
-            const blob = await recorder.getBlob();
-            stream.stop()
-
-            // storing the data in the states
-            setVideoUrlBlob(blob);
-            setStream(null);
-            setRecorder(null);
-            
-            return;
-        }
-
-        alert("No video streaming currently to stop");
+    // function to stop recording
+    const stopRecord = () => {
+        const data = stopRecording();
+        setRecorder(data.recorder);
+        setStream(data.stream);
+        setVideoUrlBlob(data.videoUrlBlob);
     }
+
 
     const downloadRecording = () => {
         if (videoBlob) {
