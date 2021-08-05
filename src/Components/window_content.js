@@ -9,6 +9,7 @@ import VideoPlayer from './video_player.js';
 import MainRecorder from './main_recorder';
 import { RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
+import startRecording from './start_recording';
 
 const WindowContent = () => {
     // url to play in the video player

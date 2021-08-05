@@ -47,6 +47,7 @@ const LivePeerAPI = () => {
         <div>
             <p>Stream Key: {data.streamKey}</p>
             <p>Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8</p>
+            <p>Stream id: {data.id}</p>
         </div>
     )
 }
