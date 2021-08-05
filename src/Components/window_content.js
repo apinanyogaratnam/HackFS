@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import live_peer_data from '../live_peer_integration/live_peer_data';
+import live_peer_data from '../Livepeer/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
-import LivePeerAPI from '../live_peer_integration/live_peer_api';
+import LivePeerAPI from '../Livepeer/live_peer_api';
 import { Player } from 'video-react';
 import VideoPlayer from './video_player.js';
 import MainRecorder from './main_recorder';
 import { RecordRTCPromisesHandler } from 'recordrtc';
 import { saveAs } from 'file-saver';
 import startRecording from './start_recording';
+
+// imports for livepeer api
+import stopStream from '../Livepeer/live_peer_functions';
 
 const WindowContent = () => {
     // url to play in the video player
@@ -68,16 +71,19 @@ const WindowContent = () => {
                 <br />
                 <LivePeerAPI className="live-peer-data"/>
             </h4>
-            <div className="top-container">
+            {/* <div className="top-container">
 
             </div>
             <div className="middle-container">
-                {/* <VideoPlayer autoPlay src={live_peer_demo_url} /> */}
+                <VideoPlayer autoPlay src={live_peer_demo_url} />
                 <Player playsInline src={live_peer_demo_url} />
             </div>
             <div className="bottom-container">
 
-            </div>
+            </div> */}
+            <button>Start Streaming</button>
+            <button>Stop Streaming</button>
+            <VideoPlayer playsInLine src={live_peer_demo_url} />
             {/* <MainRecorder /> */}
             {/* <ShakaPlayer autoPlay src="" /> */}
             {/* <VideoPlayer /> */}
