@@ -18,6 +18,8 @@ ETH Global's HackFS
 
 [File saver Repo](https://github.com/eligrey/FileSaver.js)
 
+[Styled components Repo](https://github.com/styled-components/styled-components)
+
 ## How to run locally:
 ### 1. `git clone https://github.com/the-metaverse/hackathon.git`
 ### 2. change directory to hackathon
