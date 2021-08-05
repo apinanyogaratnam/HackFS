@@ -15,6 +15,7 @@ import downloadRecording from './download_recoding';
 
 // imports for livepeer api
 import stopStream from '../Livepeer/live_peer_functions';
+// import { data } from 'browserslist';
 
 const WindowContent = () => {
     // url to play in the video player
@@ -43,7 +44,6 @@ const WindowContent = () => {
         setVideoUrlBlob(data.videoUrlBlob);
     }
 
-
     const downloadRecord = () => {
         downloadRecording({ videoBlob });
     }
@@ -57,7 +57,11 @@ const WindowContent = () => {
                 <br />
                 set server to: {live_peer_data.livePeerServerUrl}
                 <br />
-                <LivePeerAPI className="live-peer-data"/>
+                {/* <LivePeerAPI className="live-peer-data"/> */}
+                <p>Stream Key: {data.streamKey}</p>
+                <p>Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8</p>
+                <p>Stream id: {data.id}</p>
+                <p>Link URL: https://mdw-cdn.livepeer.com/recordings/{data.id}/source.mp4</p>
             </h4>
             {/* <div className="top-container">
 
