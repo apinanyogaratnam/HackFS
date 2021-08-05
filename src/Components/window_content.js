@@ -75,17 +75,17 @@ const WindowContent = () => {
                 <br />
                 <LivePeerAPI className="live-peer-data"/>
             </h4>
-            {/* <div className="top-container">
+            <div className="top-container">
 
             </div>
             <div className="middle-container">
-                <VideoPlayer autoPlay src={live_peer_demo_url} />
+                {/* <VideoPlayer autoPlay src={live_peer_demo_url} /> */}
                 <Player playsInline src={live_peer_demo_url} />
             </div>
             <div className="bottom-container">
 
-            </div> */}
-            <MainRecorder />
+            </div>
+            {/* <MainRecorder /> */}
             {/* <ShakaPlayer autoPlay src="" /> */}
             {/* <VideoPlayer /> */}
         </div>
