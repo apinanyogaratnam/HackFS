@@ -28,12 +28,7 @@ const WindowContent = () => {
     const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
     var live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
     live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/bbc3ca03-e570-4c55-b97d-afc2aa41fdc8/source.mp4";
-
-    // using states to store data relatively depending on user's actions (screen recorder)
-    const [recorder, setRecorder] = useState(null);
-    const [stream, setStream] = useState(null);
-    const [videoBlob, setVideoUrlBlob] = useState(null);
-
+    
     // using state to store data relatively (livepeer response data)
     const [data, setData] = useState([]);
 
@@ -61,26 +56,6 @@ const WindowContent = () => {
         });
     }
 
-    // function to start recording
-    const startRecord = () => {
-        const data = startRecording();
-        setRecorder(data.recorder);
-        setStream(data.stream);
-        setVideoUrlBlob(data.videoUrlBlob);
-    }
-
-    // function to stop recording
-    const stopRecord = () => {
-        const data = stopRecording({ stream, recorder });
-        setRecorder(data.recorder);
-        setStream(data.stream);
-        setVideoUrlBlob(data.videoUrlBlob);
-    }
-
-    const downloadRecord = () => {
-        downloadRecording({ videoBlob });
-    }
-
     return (
         <div>
             <h4 className="text">
@@ -96,21 +71,8 @@ const WindowContent = () => {
                 <p>Stream id: {data.id}</p>
                 <p>Link URL: https://mdw-cdn.livepeer.com/recordings/{data.id}/source.mp4</p>
             </h4>
-            {/* <div className="top-container">
-
-            </div>
-            <div className="middle-container">
-                <VideoPlayer autoPlay src={live_peer_demo_url} />
-                <Player playsInline src={live_peer_demo_url} />
-            </div>
-            <div className="bottom-container">
-
-            </div> */}
             <button onClick={stopStream}>Stop Streaming</button>
             <VideoPlayer playsInLine src={`https://mdw-cdn.livepeer.com/recordings/${data.id}/source.mp4`} />
-            {/* <MainRecorder /> */}
-            {/* <ShakaPlayer autoPlay src="" /> */}
-            {/* <VideoPlayer /> */}
         </div>
     );
 }
