@@ -13,6 +13,7 @@ import { saveAs } from 'file-saver';
 const WindowContent = () => {
     // url to play in the video player
     const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
+    const live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
 
     // using states to store data relatively depending on user's actions
     const [recorder, setRecorder] = useState(null);
@@ -64,7 +65,7 @@ const WindowContent = () => {
 
     return (
         <div>
-            {/* <h4 className="text">
+            <h4 className="text">
                 Connect via OBS Studio:
                 <br />
                 Set OBS settings: settings {'>'} stream. set service to custom
@@ -72,15 +73,16 @@ const WindowContent = () => {
                 set server to: {live_peer_data.livePeerServerUrl}
                 <br />
                 <LivePeerAPI className="live-peer-data"/>
-            </h4> */}
+            </h4>
             <div className="top-container">
 
             </div>
             <div className="middle-container">
-
+                {/* <VideoPlayer /> */}
+                <ShakaPlayer autoPlay src={live_peer_demo_url} />
             </div>
             <div className="bottom-container">
-                
+
             </div>
             {/* <MainRecorder /> */}
             {/* <ShakaPlayer autoPlay src="" /> */}
