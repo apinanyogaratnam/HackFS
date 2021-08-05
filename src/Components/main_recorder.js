@@ -58,7 +58,8 @@ const MainRecorder = () => {
             <button onClick={startRecording}>Start streaming</button>
             <button onClick={stopRecording}>Stop streaming</button>
             <button onClick={downloadRecording}>Download Stream</button>
-            {!!videoBlob && (<Player src={window.URL.createObjectURL(videoBlob)} />)}
+            {!!videoBlob ? (<Player src={window.URL.createObjectURL(videoBlob)} />)
+             : (<Player />)}
         </div>
     );
 }

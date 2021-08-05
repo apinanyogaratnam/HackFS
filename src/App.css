@@ -14,7 +14,7 @@
   position: absolute;
   background: rgba(30, 32, 44, .99);
   min-width: 150px;
-  height: initial;
+  /* height: initial; */
   border-radius: 20px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
   z-index: 9999;
