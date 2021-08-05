@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import live_peer_data from '../Livepeer/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
@@ -15,6 +15,7 @@ import downloadRecording from './download_recoding';
 
 // imports for livepeer api
 import stopStream from '../Livepeer/live_peer_functions';
+import content from '../Livepeer/content_livepeer';
 
 const WindowContent = () => {
     // livepeer api package
@@ -37,33 +38,8 @@ const WindowContent = () => {
 
     // create a stream using livepeer's api
     const startStream = () => {
-        livepeerObject.Stream.create({
-            "name": "test_stream", 
-            "profiles": [
-                {
-                    "name": "720p",
-                    "bitrate": 2000000,
-                    "fps": 30,
-                    "width": 1280,
-                    "height": 720
-                },
-                {
-                    "name": "480p",
-                    "bitrate": 1000000,
-                    "fps": 30,
-                    "width": 854,
-                    "height": 480
-                },
-                {
-                    "name": "360p",
-                    "bitrate": 500000,
-                    "fps": 30,
-                    "width": 640,
-                    "height": 360
-                },
-            ],
-            "record": true
-        }).then(res => {
+        livepeerObject.Stream.create(content)
+        .then(res => {
             console.log(res);
             setData(res);
         })
