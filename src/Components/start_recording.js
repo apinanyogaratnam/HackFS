@@ -1,3 +1,5 @@
+import { RecordRTCPromisesHandler } from 'recordrtc';
+
 const startRecording = async () => {
     let mediaDevices = navigator.mediaDevices;
     const stream = await mediaDevices.getDisplayMedia({video: true, audio: false});

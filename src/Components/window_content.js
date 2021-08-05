@@ -23,19 +23,25 @@ const WindowContent = () => {
     const [videoBlob, setVideoUrlBlob] = useState(null);
 
     // function to start recording video and audio
-    const startRecording = async () => {
-        let mediaDevices = navigator.mediaDevices;
-        const stream = await mediaDevices.getDisplayMedia({video: true, audio: false});
-        const recorder = new RecordRTCPromisesHandler(stream, {
-            type: 'video'
-        });
+    // const startRecording = async () => {
+    //     let mediaDevices = navigator.mediaDevices;
+    //     const stream = await mediaDevices.getDisplayMedia({video: true, audio: false});
+    //     const recorder = new RecordRTCPromisesHandler(stream, {
+    //         type: 'video'
+    //     });
         
-        await recorder.startRecording();
+    //     await recorder.startRecording();
 
-        // storing the data in the states
-        setRecorder(recorder);
-        setStream(stream);
-        setVideoUrlBlob(null);
+    //     // storing the data in the states
+    //     setRecorder(recorder);
+    //     setStream(stream);
+    //     setVideoUrlBlob(null);
+    // }
+    const record = () => {
+        const data = startRecording();
+        setRecorder(data.recorder);
+        setStream(data.stream);
+        setVideoUrlBlob(data.setVideoUrlBlob);
     }
 
     // function to stop recording audio and video
