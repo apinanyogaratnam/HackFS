@@ -12,9 +12,10 @@ import { saveAs } from 'file-saver';
 import startRecording from './start_recording';
 import stopRecording from './stop_recording';
 import downloadRecording from './download_recoding';
+import axios from 'axios';
 
 // imports for livepeer api
-import stopStream from '../Livepeer/live_peer_functions';
+// import stopStream from '../Livepeer/live_peer_functions';
 import content from '../Livepeer/content_livepeer';
 
 const WindowContent = () => {
@@ -50,10 +51,10 @@ const WindowContent = () => {
     }, []);
 
 
-    const stopStream = () => {
+    const stopStream = async () => {
         const url = `https://livepeer.com/api/stream/${data.id}/terminate`;
     
-        axios.delete(url, {
+        await axios.delete(url, {
             headers: {
                 Authorization: `Bearer ${apiKey}`
             },
@@ -105,9 +106,8 @@ const WindowContent = () => {
             <div className="bottom-container">
 
             </div> */}
-            {/* <button >Start Streaming</button> */}
             <button onClick={stopStream}>Stop Streaming</button>
-            <VideoPlayer playsInLine src={live_peer_demo_url} />
+            <VideoPlayer playsInLine src={`https://mdw-cdn.livepeer.com/recordings/${data.id}/source.mp4`} />
             {/* <MainRecorder /> */}
             {/* <ShakaPlayer autoPlay src="" /> */}
             {/* <VideoPlayer /> */}
