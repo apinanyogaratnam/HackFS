@@ -13,7 +13,8 @@ import { saveAs } from 'file-saver';
 const WindowContent = () => {
     // url to play in the video player
     const example_video_url = "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
-    const live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
+    var live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
+    live_peer_demo_url = "https://mdw-cdn.livepeer.com/recordings/bbc3ca03-e570-4c55-b97d-afc2aa41fdc8/source.mp4";
 
     // using states to store data relatively depending on user's actions
     const [recorder, setRecorder] = useState(null);
@@ -74,17 +75,17 @@ const WindowContent = () => {
                 <br />
                 <LivePeerAPI className="live-peer-data"/>
             </h4>
-            <div className="top-container">
+            {/* <div className="top-container">
 
             </div>
             <div className="middle-container">
-                {/* <VideoPlayer /> */}
-                <ShakaPlayer autoPlay src={live_peer_demo_url} />
+                <VideoPlayer autoPlay src={live_peer_demo_url} />
+                <Player playsInline src={live_peer_demo_url} />
             </div>
             <div className="bottom-container">
 
-            </div>
-            {/* <MainRecorder /> */}
+            </div> */}
+            <MainRecorder />
             {/* <ShakaPlayer autoPlay src="" /> */}
             {/* <VideoPlayer /> */}
         </div>
