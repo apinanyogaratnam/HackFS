@@ -20,22 +20,14 @@ import styled from "styled-components";
 import content from "../Livepeer/content_livepeer";
 
 const WindowContent = () => {
-  // livepeer api package
-  const Livepeer = require("livepeer-nodejs");
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const livepeerObject = new Livepeer(apiKey);
-
-  // url to play in the video player
-  const example_video_url =
-    "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
-  var live_peer_demo_url =
-    "https://mdw-cdn.livepeer.com/recordings/2bf2222d-b82e-4758-bce8-2a6fa04e5550/index.m3u8";
-  live_peer_demo_url =
-    "https://mdw-cdn.livepeer.com/recordings/bbc3ca03-e570-4c55-b97d-afc2aa41fdc8/source.mp4";
-
-  // using state to store data relatively (livepeer response data)
-  const [data, setData] = useState([]);
-  const [streamUrl, setStreamUrl] = useState(null);
+    // livepeer api package
+    const Livepeer = require('livepeer-nodejs');
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const livepeerObject = new Livepeer(apiKey);
+    
+    // using state to store data relatively (livepeer response data)
+    const [data, setData] = useState([]);
+    const [streamUrl, setStreamUrl] = useState(null);
 
   // create a stream using livepeer's api
   const startStream = () => {
@@ -83,17 +75,14 @@ const WindowContent = () => {
         <br />
         set server to: {live_peer_data.livePeerServerUrl}
         <br />
-        {/* <LivePeerAPI className="live-peer-data"/> */}
         <p>Stream Key: {data.streamKey}</p>
         <p>
-          Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}
-          /index.m3u8
+          Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8
         </p>
         <p>Stream id: {data.id}</p>
         <p>Link URL: {streamUrl}</p>
       </h4>
       <button onClick={someData}>Stop Streaming</button>
-      {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
       <ShakaPlayer src={streamUrl} />
     </Window_Content_WrapperCSS>
   );
