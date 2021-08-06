@@ -4,10 +4,11 @@ import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
 import axios from 'axios';
+import styled from "styled-components";
 
 // imports for livepeer api
 // import stopStream from '../Livepeer/live_peer_functions';
-import content from '../Livepeer/content_livepeer';
+import content from "../Livepeer/content_livepeer";
 
 const WindowContent = () => {
     // livepeer api package
@@ -19,53 +20,69 @@ const WindowContent = () => {
     const [data, setData] = useState([]);
     const [streamUrl, setStreamUrl] = useState(null);
 
-    // create a stream using livepeer's api
-    const startStream = () => {
-        livepeerObject.Stream.create(content)
-        .then(res => {
-            console.log(res);
-            setData(res);
-        })
-    }
+  // create a stream using livepeer's api
+  const startStream = () => {
+    livepeerObject.Stream.create(content).then((res) => {
+      console.log(res);
+      setData(res);
+    });
+  };
 
-    useEffect(() => {
-        startStream();
-    }, []);
+  useEffect(() => {
+    startStream();
+  }, []);
 
-    const someData = async () => {
-        const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
+  const stopStream = async () => {
+    const url = `https://livepeer.com/api/stream/${data.id}/terminate`;
 
-        const listOfAllStreams = await axios.get(url, {
-            headers: {
-                Authorization: `Bearer ${apiKey}`
-            }
-        });
-        console.log(listOfAllStreams);
-        console.log(listOfAllStreams.data[0].mp4Url);
-        setStreamUrl(listOfAllStreams.data[0].mp4Url);
-    }
+    await axios.delete(url, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    });
+  };
 
-    // console.log(window.location.href);
+  const someData = async () => {
+    const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
 
-    return (
-        <div>
-            <h4 className="text">
-                Connect via OBS Studio:
-                <br />
-                Set OBS settings: settings {'>'} stream. set service to custom
-                <br />
-                set server to: {live_peer_data.livePeerServerUrl}
-                <br />
-                {/* <LivePeerAPI className="live-peer-data"/> */}
-                <p>Stream Key: {data.streamKey}</p>
-                <p>Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8</p>
-                <p>Stream id: {data.id}</p>
-                <p>Link URL: {streamUrl}</p>
-            </h4>
-            <button onClick={someData}>Stop Streaming</button>
-            <ShakaPlayer src={streamUrl}/>
-        </div>
-    );
-}
+    const listOfAllStreams = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    });
+    console.log(listOfAllStreams);
+    console.log(listOfAllStreams.data[0].mp4Url);
+    setStreamUrl(listOfAllStreams.data[0].mp4Url);
+  };
+
+  // console.log(window.location.href);
+
+  return (
+    <Window_Content_WrapperCSS>
+      <h4 className="text">
+        Connect via OBS Studio:
+        <br />
+        Set OBS settings: settings {">"} stream. set service to custom
+        <br />
+        set server to: {live_peer_data.livePeerServerUrl}
+        <br />
+        <p>Stream Key: {data.streamKey}</p>
+        <p>
+          Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8
+        </p>
+        <p>Stream id: {data.id}</p>
+        <p>Link URL: {streamUrl}</p>
+      </h4>
+      <button onClick={someData}>Stop Streaming</button>
+      <ShakaPlayer src={streamUrl} />
+    </Window_Content_WrapperCSS>
+  );
+};
+
+const Window_Content_WrapperCSS = styled.div`
+  background-color: purple;
+  width: 100%;
+  height: 100%;
+`;
 
 export default WindowContent;
