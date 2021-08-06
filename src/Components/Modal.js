@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'react-feather';
 import Draggable from 'react-draggable';
 import { ModalContext } from '../Contexts/ModalProvider';
 import '../css/window.scss';
