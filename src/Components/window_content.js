@@ -83,7 +83,7 @@ const WindowContent = () => {
                 <p>Stream Key: {data.streamKey}</p>
                 <p>Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8</p>
                 <p>Stream id: {data.id}</p>
-                <p>Link URL: https://mdw-cdn.livepeer.com/recordings/{data.id}/source.mp4</p>
+                <p>Link URL: {streamUrl}</p>
             </h4>
             <button onClick={someData}>Stop Streaming</button>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
