@@ -15,58 +15,58 @@ const WindowContent = () => {
     const Livepeer = require('livepeer-nodejs');
     const apiKey = process.env.REACT_APP_API_KEY;
     const livepeerObject = new Livepeer(apiKey);
-    
+
     // using state to store data relatively (livepeer response data)
     const [data, setData] = useState([]);
     const [streamUrl, setStreamUrl] = useState(null);
 
-  // create a stream using livepeer's api
-  const startStream = () => {
-    livepeerObject.Stream.create(content).then((res) => {
-      console.log(res);
-      setData(res);
-    });
-  };
+    // create a stream using livepeer's api
+    const startStream = () => {
+        livepeerObject.Stream.create(content).then((res) => {
+            console.log(res);
+            setData(res);
+        });
+    };
 
-  useEffect(() => {
-    startStream();
-  }, []);
+    useEffect(() => {
+        startStream();
+    }, []);
 
-  const someData = async () => {
-    const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
+    const someData = async () => {
+        const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
 
-    const listOfAllStreams = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    });
-    console.log(listOfAllStreams);
-    console.log(listOfAllStreams.data[0].mp4Url);
-    setStreamUrl(listOfAllStreams.data[0].mp4Url);
-  };
+        const listOfAllStreams = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${apiKey}`,
+            },
+        });
+        console.log(listOfAllStreams);
+        console.log(listOfAllStreams.data[0].mp4Url);
+        setStreamUrl(listOfAllStreams.data[0].mp4Url);
+    };
 
-  // console.log(window.location.href);
+    // console.log(window.location.href);
 
-  return (
-    <WindowContentWrapperCSS>
-      <h4 className="text">
-        Connect via OBS Studio:
-        <br />
-        Set OBS settings: settings {">"} stream. set service to custom
-        <br />
-        set server to: {live_peer_data.livePeerServerUrl}
-        <br />
-        <p>Stream Key: {data.streamKey}</p>
-        <p>
-          Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8
-        </p>
-        <p>Stream id: {data.id}</p>
-        <p>Link URL: {streamUrl}</p>
-      </h4>
-      <button onClick={someData}>Stop Streaming</button>
-      <ShakaPlayer src={streamUrl} />
-    </WindowContentWrapperCSS>
-  );
+    return (
+        <WindowContentWrapperCSS>
+            <h4 className="text">
+                Connect via OBS Studio:
+                <br />
+                Set OBS settings: settings {">"} stream. set service to custom
+                <br />
+                set server to: {live_peer_data.livePeerServerUrl}
+                <br />
+                <p>Stream Key: {data.streamKey}</p>
+                <p>
+                    Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}/index.m3u8
+                </p>
+                <p>Stream id: {data.id}</p>
+                <p>Link URL: {streamUrl}</p>
+            </h4>
+            <button onClick={someData}>Stop Streaming</button>
+            <ShakaPlayer src={streamUrl} />
+        </WindowContentWrapperCSS>
+    );
 };
 
 const WindowContentWrapperCSS = styled.div`
