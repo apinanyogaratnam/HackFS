@@ -32,16 +32,6 @@ const WindowContent = () => {
     startStream();
   }, []);
 
-  const stopStream = async () => {
-    const url = `https://livepeer.com/api/stream/${data.id}/terminate`;
-
-    await axios.delete(url, {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    });
-  };
-
   const someData = async () => {
     const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
 
