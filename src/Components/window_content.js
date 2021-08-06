@@ -58,7 +58,7 @@ const WindowContent = () => {
   // console.log(window.location.href);
 
   return (
-    <Window_Content_WrapperCSS>
+    <WindowContentWrapperCSS>
       <h4 className="text">
         Connect via OBS Studio:
         <br />
@@ -75,11 +75,11 @@ const WindowContent = () => {
       </h4>
       <button onClick={someData}>Stop Streaming</button>
       <ShakaPlayer src={streamUrl} />
-    </Window_Content_WrapperCSS>
+    </WindowContentWrapperCSS>
   );
 };
 
-const Window_Content_WrapperCSS = styled.div`
+const WindowContentWrapperCSS = styled.div`
   background-color: purple;
   width: 100%;
   height: 100%;
