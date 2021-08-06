@@ -87,7 +87,7 @@ const WindowContent = () => {
             </h4>
             <button onClick={someData}>Stop Streaming</button>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
-            <ShakaPlayer src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4"/>
+            <ShakaPlayer src={streamUrl}/>
         </div>
     );
 }
