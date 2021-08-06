@@ -70,6 +70,8 @@ const WindowContent = () => {
         setStreamUrl(listOfAllStreams.data[0].mp4Url);
     }
 
+    // console.log(window.location.href);
+
     return (
         <div>
             <h4 className="text">
