@@ -31,7 +31,7 @@ const WindowContent = () => {
     
     // using state to store data relatively (livepeer response data)
     const [data, setData] = useState([]);
-    const [allStreams, setAllStreams] = useState(null);
+    const [streamUrl, setStreamUrl] = useState(null);
 
     // create a stream using livepeer's api
     const startStream = () => {
@@ -66,7 +66,8 @@ const WindowContent = () => {
             }
         });
         console.log(listOfAllStreams);
-        setAllStreams(listOfAllStreams);
+        console.log(listOfAllStreams.data[0].mp4Url);
+        setStreamUrl(listOfAllStreams.data[0].mp4Url);
     }
 
     return (
@@ -85,7 +86,8 @@ const WindowContent = () => {
                 <p>Link URL: https://mdw-cdn.livepeer.com/recordings/{data.id}/source.mp4</p>
             </h4>
             <button onClick={someData}>Stop Streaming</button>
-            <VideoPlayer playsInLine src={`https://mdw-cdn.livepeer.com/recordings/${data.id}/source.mp4`} />
+            {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
+            <ShakaPlayer src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4"/>
         </div>
     );
 }
