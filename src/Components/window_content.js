@@ -14,6 +14,7 @@ import stopRecording from "./stop_recording";
 import downloadRecording from "./download_recoding";
 import axios from "axios";
 import styled from "styled-components";
+import CopyIcon from "../assets/copy-vector.png";
 
 // imports for livepeer api
 // import stopStream from '../Livepeer/live_peer_functions';
@@ -81,13 +82,15 @@ const WindowContent = () => {
                     <p>URL: </p>{" "}
                     <TopBoxCSS>
                         <TopTextCSS>{streamUrl}</TopTextCSS>
-                    </TopBoxCSS>
+                    </TopBoxCSS>{" "}
+                    <CopyIconCSS src={CopyIcon} />
                 </TopWrapperCSS>
                 <TopWrapperCSS>
                     <p>KEY: </p>
                     <TopBoxCSS>
                         <TopTextCSS>{data.streamKey}</TopTextCSS>
                     </TopBoxCSS>
+                    <CopyIconCSS src={CopyIcon} />
                 </TopWrapperCSS>
                 {/* Connect via OBS Studio:
                 <br />
@@ -119,7 +122,7 @@ const TopWrapperCSS = styled.div`
     flex-direction: row;
 `;
 const TopBoxCSS = styled.div`
-    width: 70%;
+    width: 60%;
     height: 2rem;
     border-style: solid;
     border-width: 0.2rem;
@@ -137,6 +140,11 @@ const TopTextCSS = styled.p`
     margin: 0;
     padding-left: 0.3rem;
     color: F7FAFC;
+`;
+
+const CopyIconCSS = styled.img`
+    object-fit: contain;
+    margin: 0.7rem;
 `;
 
 export default WindowContent;
