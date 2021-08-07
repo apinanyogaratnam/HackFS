@@ -1,7 +1,7 @@
 
 const useWindowPosition = () => {
   return {
-    windowPosition:  { x: 1000, y: -20 },
+    windowPosition:  { x: 900, y: -20 },
   }
 };
 
