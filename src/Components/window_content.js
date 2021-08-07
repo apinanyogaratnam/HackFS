@@ -86,18 +86,18 @@ const WindowContent = () => {
                         <TopTextCSS>{data.streamKey}</TopTextCSS>
                     </TopBoxCSS>
                 </TopWrapperCSS>
-                Connect via OBS Studio:
+                {/* Connect via OBS Studio:
                 <br />
                 Set OBS settings: settings {">"} stream. set service to custom
                 <br />
                 set server to: {live_peer_data.livePeerServerUrl}
                 <br />
-                {/* <LivePeerAPI className="live-peer-data"/> */}
+                <LivePeerAPI className="live-peer-data" />
                 <p>
                     Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}
                     /index.m3u8
                 </p>
-                <p>Stream id: {data.id}</p>
+                <p>Stream id: {data.id}</p> */}
             </h4>
             <button onClick={someData}>Stop Streaming</button>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
@@ -107,7 +107,7 @@ const WindowContent = () => {
 };
 
 const Window_Content_WrapperCSS = styled.div`
-    background-color: purple;
+    background-color: 2b2b31;
     width: 100%;
     height: 100%;
 `;
@@ -129,6 +129,7 @@ const TopBoxCSS = styled.div`
 const TopTextCSS = styled.p`
     margin: 0;
     padding-left: 0.3rem;
+    color: F7FAFC;
 `;
 
 export default WindowContent;
