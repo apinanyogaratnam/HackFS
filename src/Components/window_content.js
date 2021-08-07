@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import live_peer_data from '../Livepeer/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
