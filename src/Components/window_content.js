@@ -77,9 +77,15 @@ const WindowContent = () => {
     return (
         <Window_Content_WrapperCSS>
             <h4 className="text">
-                <URLWrapperCSS>
-                    <p>URL:</p> <URLBoxCSS>{streamUrl}</URLBoxCSS>
-                </URLWrapperCSS>
+                <TopWrapperCSS>
+                    <p>URL: </p> <TopBoxCSS>{streamUrl}</TopBoxCSS>
+                </TopWrapperCSS>
+                <TopWrapperCSS>
+                    <p>KEY: </p>{" "}
+                    <TopBoxCSS>
+                        <TopTextCSS>{data.streamKey}</TopTextCSS>
+                    </TopBoxCSS>
+                </TopWrapperCSS>
                 Connect via OBS Studio:
                 <br />
                 Set OBS settings: settings {">"} stream. set service to custom
@@ -87,7 +93,6 @@ const WindowContent = () => {
                 set server to: {live_peer_data.livePeerServerUrl}
                 <br />
                 {/* <LivePeerAPI className="live-peer-data"/> */}
-                <p>Stream Key: {data.streamKey}</p>
                 <p>
                     Playback URL: https://cdn.livepeer.com/hls/{data.playbackId}
                     /index.m3u8
@@ -106,15 +111,24 @@ const Window_Content_WrapperCSS = styled.div`
     width: 100%;
     height: 100%;
 `;
-const URLWrapperCSS = styled.div`
+const TopWrapperCSS = styled.div`
     display: flex;
     flex-direction: row;
 `;
-const URLBoxCSS = styled.div`
+const TopBoxCSS = styled.div`
     width: 70%;
     height: 2rem;
     border-style: solid;
     border-radius: 8px;
     align-self: center;
+    margin-left: 0.3rem;
+    display: flex;
+    align-items: center;
 `;
+
+const TopTextCSS = styled.p`
+    margin: 0;
+    padding-left: 0.3rem;
+`;
+
 export default WindowContent;
