@@ -78,10 +78,13 @@ const WindowContent = () => {
         <Window_Content_WrapperCSS>
             <h4 className="text">
                 <TopWrapperCSS>
-                    <p>URL: </p> <TopBoxCSS>{streamUrl}</TopBoxCSS>
+                    <p>URL: </p>{" "}
+                    <TopBoxCSS>
+                        <TopTextCSS>{streamUrl}</TopTextCSS>
+                    </TopBoxCSS>
                 </TopWrapperCSS>
                 <TopWrapperCSS>
-                    <p>KEY: </p>{" "}
+                    <p>KEY: </p>
                     <TopBoxCSS>
                         <TopTextCSS>{data.streamKey}</TopTextCSS>
                     </TopBoxCSS>
@@ -119,11 +122,15 @@ const TopBoxCSS = styled.div`
     width: 70%;
     height: 2rem;
     border-style: solid;
+    border-width: 0.2rem;
     border-radius: 8px;
     align-self: center;
     margin-left: 0.3rem;
     display: flex;
     align-items: center;
+    color: F7FAFC;
+    overflow-x: hidden;
+    overflow-y: hidden;
 `;
 
 const TopTextCSS = styled.p`
