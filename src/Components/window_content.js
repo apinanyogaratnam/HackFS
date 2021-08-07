@@ -20,7 +20,7 @@ const WindowContent = () => {
     // create a stream using livepeer's api
     const startStream = () => {
         livepeerObject.Stream.create(content).then((res) => {
-            console.log(res);
+            // console.log(res);
             setData(res);
         });
     };
@@ -29,7 +29,7 @@ const WindowContent = () => {
         startStream();
     }, []);
 
-    const someData = async () => {
+    const getStreamUrl = async () => {
         const url = `https://livepeer.com/api/session?limit=20&parentId=${data.id}`;
 
         const listOfAllStreams = await axios.get(url, {
@@ -37,9 +37,11 @@ const WindowContent = () => {
                 Authorization: `Bearer ${apiKey}`,
             },
         });
-        console.log(listOfAllStreams);
-        console.log(listOfAllStreams.data[0].mp4Url);
+        // console.log(listOfAllStreams);
+        // console.log(listOfAllStreams.data[0].mp4Url);
         setStreamUrl(listOfAllStreams.data[0].mp4Url);
+
+        if (streamUrl === "") alert("stream is currently processing");
     };
 
     // console.log(window.location.href);
@@ -60,7 +62,7 @@ const WindowContent = () => {
                 <p>Stream id: {data.id}</p>
                 <p>Link URL: {streamUrl}</p>
             </h4>
-            <button onClick={someData}>Stop Streaming</button>
+            <button onClick={getStreamUrl}>Stop Streaming</button>
             <ShakaPlayer src={streamUrl} />
         </WindowContentWrapperCSS>
     );
