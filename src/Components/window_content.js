@@ -47,7 +47,11 @@ const WindowContent = () => {
         if (streamUrl === "") alert("stream is currently processing");
     };
 
-    // console.log(window.location.href);
+    const getParcelData = () => {
+        const urlOfActiveWebsite = window.location.href;
+
+        console.log(urlOfActiveWebsite);
+    }
 
     return (
         <Window_Content_WrapperCSS>
@@ -80,6 +84,7 @@ const WindowContent = () => {
                 <p>Stream id: {data.id}</p> */}
             </h4>
             <button onClick={getStreamUrl}>Play Stream</button>
+            <button onClick={getParcelData}>Get Coordinates of Parcel</button>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
             <ShakaPlayer src={streamUrl} />
         </Window_Content_WrapperCSS>
