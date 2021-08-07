@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import live_peer_data from '../Livepeer/live_peer_data';
 import '../css/window.scss';
 import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
@@ -54,7 +55,7 @@ const WindowContent = () => {
                 <TopWrapperCSS>
                     <p>URL: </p>{" "}
                     <TopBoxCSS>
-                        <TopTextCSS>{"rtmp://rtmp.livepeer.com/live/"}</TopTextCSS>
+                        <TopTextCSS>{live_peer_data.livePeerServerUrl}</TopTextCSS>
                     </TopBoxCSS>{" "}
                     <CopyIconCSS src={CopyIcon} />
                 </TopWrapperCSS>
@@ -90,10 +91,12 @@ const Window_Content_WrapperCSS = styled.div`
     width: 100%;
     height: 100%;
 `;
+
 const TopWrapperCSS = styled.div`
     display: flex;
     flex-direction: row;
 `;
+
 const TopBoxCSS = styled.div`
     width: 60%;
     height: 2rem;
