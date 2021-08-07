@@ -5,9 +5,6 @@ import ShakaPlayer from 'shaka-player-react';
 import 'shaka-player/dist/controls.css';
 import axios from 'axios';
 import styled from "styled-components";
-
-// imports for livepeer api
-// import stopStream from '../Livepeer/live_peer_functions';
 import content from "../Livepeer/content_livepeer";
 
 const WindowContent = () => {
