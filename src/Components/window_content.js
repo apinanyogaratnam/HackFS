@@ -119,7 +119,6 @@ const TopTextCSS = styled.p`
 const CopyIconCSS = styled.img`
     object-fit: contain;
     margin: 0.7rem;
->>>>>>> 50061113d898488c97790a54a1f2fd19db95ab7e
 `;
 
 export default WindowContent;
