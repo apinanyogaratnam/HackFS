@@ -93,6 +93,7 @@ const WindowContent = () => {
         
         // 62
         const xCoord = getXCoord();
+        // 22
         const yCoord = getYCoord();
 
         const landObj = {
