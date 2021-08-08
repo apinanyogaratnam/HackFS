@@ -49,10 +49,13 @@ const WindowContent = () => {
 
     const getParcelData = () => {
         var urlOfActiveWebsite = window.location.href;
-        urlOfActiveWebsite = "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
+        const exampleUrl = "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
 
-        // https://play.decentraland.org/?position=62%2C22&realm=dg-honey
-        console.log(urlOfActiveWebsite);
+        if (urlOfActiveWebsite.substring(0, "https://play.decentraland.org/?position=".length) !== "https://play.decentraland.org/?position=") {
+            alert("invalid website");
+
+            return;
+        }
 
         const removedBaseUrl = () => {
             return urlOfActiveWebsite.substring("https://play.decentraland.org/".length);
@@ -92,8 +95,13 @@ const WindowContent = () => {
         const xCoord = getXCoord();
         const yCoord = getYCoord();
 
-        console.log(yCoord);
+        const landObj = {
+            "xCoord": xCoord,
+            "yCoord": yCoord,
+            "urlOfLand": urlOfActiveWebsite
+        }
 
+        // return landObj;
     }
 
     return (
