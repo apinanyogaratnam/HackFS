@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import live_peer_data from '../Livepeer/live_peer_data';
-import '../css/window.scss';
-import ShakaPlayer from 'shaka-player-react';
-import 'shaka-player/dist/controls.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import live_peer_data from "../Livepeer/live_peer_data";
+import "../css/window.scss";
+import ShakaPlayer from "shaka-player-react";
+import "shaka-player/dist/controls.css";
+import axios from "axios";
 import styled from "styled-components";
 import CopyIcon from "../assets/copy-vector.png";
 import content from "../Livepeer/content_livepeer";
 
 const WindowContent = () => {
     // livepeer api package
-    const Livepeer = require('livepeer-nodejs');
+    const Livepeer = require("livepeer-nodejs");
     const apiKey = process.env.REACT_APP_API_KEY;
     const livepeerObject = new Livepeer(apiKey);
     // using state to store data relatively (livepeer response data)
@@ -36,7 +36,7 @@ const WindowContent = () => {
                 Authorization: `Bearer ${apiKey}`,
             },
         });
-        
+
         if (listOfAllStreams.data.length === 0) {
             alert("No stream detected");
             return;
@@ -111,7 +111,9 @@ const WindowContent = () => {
                 <TopWrapperCSS>
                     <p>URL: </p>{" "}
                     <TopBoxCSS>
-                        <TopTextCSS>{live_peer_data.livePeerServerUrl}</TopTextCSS>
+                        <TopTextCSS>
+                            {live_peer_data.livePeerServerUrl}
+                        </TopTextCSS>
                     </TopBoxCSS>{" "}
                     <CopyIconCSS src={CopyIcon} />
                 </TopWrapperCSS>
