@@ -59,11 +59,27 @@ const WindowContent = () => {
         }
 
         // ?position=62%2C22&realm=dg-honey
-        console.log(removedBaseUrl());
+        const subUrl = removedBaseUrl();
 
         const getXCoord = () => {
-            "?position"
+            const positionIndex = subUrl.indexOf("position");
+            const indexOfXCoordStart = positionIndex + "position=".length;
+
+            const indexOfXCoordEnd = subUrl.indexOf("%");
+            const xCoordString = subUrl.substring(indexOfXCoordStart, indexOfXCoordEnd);
+            const xCoord = parseInt(xCoordString);
+
+            return xCoord;
         }
+
+        // const getYCoord = () => {
+        //     const 
+        // }
+        
+        // 62
+        const xCoord = getXCoord();
+
+
 
     }
 
