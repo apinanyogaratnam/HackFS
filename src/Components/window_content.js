@@ -48,9 +48,23 @@ const WindowContent = () => {
     };
 
     const getParcelData = () => {
-        const urlOfActiveWebsite = window.location.href;
+        var urlOfActiveWebsite = window.location.href;
+        urlOfActiveWebsite = "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
 
+        // https://play.decentraland.org/?position=62%2C22&realm=dg-honey
         console.log(urlOfActiveWebsite);
+
+        const removedBaseUrl = () => {
+            return urlOfActiveWebsite.substring("https://play.decentraland.org/".length);
+        }
+
+        // ?position=62%2C22&realm=dg-honey
+        console.log(removedBaseUrl());
+
+        const getXCoord = () => {
+            "?position"
+        }
+
     }
 
     return (
