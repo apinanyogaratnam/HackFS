@@ -67,19 +67,32 @@ const WindowContent = () => {
 
             const indexOfXCoordEnd = subUrl.indexOf("%");
             const xCoordString = subUrl.substring(indexOfXCoordStart, indexOfXCoordEnd);
-            const xCoord = parseInt(xCoordString);
 
-            return xCoord;
+            return parseInt(xCoordString);
         }
 
-        // const getYCoord = () => {
-        //     const 
-        // }
+        const getYCoord = () => {
+            const indexOfXCoordEnd = subUrl.indexOf("%");
+            const indexOfYCoordEnd = subUrl.indexOf("&");
+
+            const yCoordString = subUrl.substring(indexOfXCoordEnd+1, indexOfYCoordEnd);
+
+            function yCoordStringSanitized() {
+                var yCoordStringFirstLayer = yCoordString.substring(2);
+
+                if (yCoordStringFirstLayer[0] === "-") return yCoordStringFirstLayer.substring(1);
+
+                return yCoordStringFirstLayer;
+            }
+
+            return parseInt(yCoordStringSanitized());
+        }
         
         // 62
         const xCoord = getXCoord();
+        const yCoord = getYCoord();
 
-
+        console.log(yCoord);
 
     }
 
