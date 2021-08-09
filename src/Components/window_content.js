@@ -95,7 +95,7 @@ const WindowContent = () => {
             );
 
             function yCoordStringSanitized() {
-                var yCoordStringFirstLayer = yCoordString.substring(2);
+                const yCoordStringFirstLayer = yCoordString.substring(2);
 
                 if (yCoordStringFirstLayer[0] === "-")
                     return yCoordStringFirstLayer.substring(1);
