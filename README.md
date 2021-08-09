@@ -6,6 +6,8 @@ ETH Global's HackFS
 ![image of UI](current_UI.png)
 ![image of UI](current_UI_1.png)
 ![image of UI](current_UI_2.png)
+![image of UI](current_UI_3.png)
+![image of UI](current_UI_4.png)
 
 
 [Boiler Plate Code Repo](https://github.com/upmostly/react-chrome-extension.git)
