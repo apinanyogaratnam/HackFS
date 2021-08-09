@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import live_peer_data from '../Livepeer/live_peer_data';
-import '../css/window.scss';
-import ShakaPlayer from 'shaka-player-react';
-import 'shaka-player/dist/controls.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import live_peer_data from "../Livepeer/live_peer_data";
+import "../css/window.scss";
+import ShakaPlayer from "shaka-player-react";
+import "shaka-player/dist/controls.css";
+import axios from "axios";
 import styled from "styled-components";
 import CopyIcon from "../assets/copy-vector.png";
 import content from "../Livepeer/content_livepeer";
 
 const WindowContent = () => {
     // livepeer api package
-    const Livepeer = require('livepeer-nodejs');
+    const Livepeer = require("livepeer-nodejs");
     const apiKey = process.env.REACT_APP_API_KEY;
     const livepeerObject = new Livepeer(apiKey);
     // using state to store data relatively (livepeer response data)
@@ -36,7 +36,7 @@ const WindowContent = () => {
                 Authorization: `Bearer ${apiKey}`,
             },
         });
-        
+
         if (listOfAllStreams.data.length === 0) {
             alert("No stream detected");
             return;
@@ -49,17 +49,25 @@ const WindowContent = () => {
 
     const getParcelData = () => {
         var urlOfActiveWebsite = window.location.href;
-        const exampleUrl = "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
+        const exampleUrl =
+            "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
 
-        if (urlOfActiveWebsite.substring(0, "https://play.decentraland.org/?position=".length) !== "https://play.decentraland.org/?position=") {
+        if (
+            urlOfActiveWebsite.substring(
+                0,
+                "https://play.decentraland.org/?position=".length
+            ) !== "https://play.decentraland.org/?position="
+        ) {
             alert("invalid website");
 
             return;
         }
 
         const removedBaseUrl = () => {
-            return urlOfActiveWebsite.substring("https://play.decentraland.org/".length);
-        }
+            return urlOfActiveWebsite.substring(
+                "https://play.decentraland.org/".length
+            );
+        };
 
         // ?position=62%2C22&realm=dg-honey
         const subUrl = removedBaseUrl();
@@ -69,41 +77,56 @@ const WindowContent = () => {
             const indexOfXCoordStart = positionIndex + "position=".length;
 
             const indexOfXCoordEnd = subUrl.indexOf("%");
-            const xCoordString = subUrl.substring(indexOfXCoordStart, indexOfXCoordEnd);
+            const xCoordString = subUrl.substring(
+                indexOfXCoordStart,
+                indexOfXCoordEnd
+            );
 
             return parseInt(xCoordString);
-        }
+        };
 
         const getYCoord = () => {
             const indexOfXCoordEnd = subUrl.indexOf("%");
             const indexOfYCoordEnd = subUrl.indexOf("&");
 
-            const yCoordString = subUrl.substring(indexOfXCoordEnd+1, indexOfYCoordEnd);
+            const yCoordString = subUrl.substring(
+                indexOfXCoordEnd + 1,
+                indexOfYCoordEnd
+            );
 
             function yCoordStringSanitized() {
                 var yCoordStringFirstLayer = yCoordString.substring(2);
 
-                if (yCoordStringFirstLayer[0] === "-") return yCoordStringFirstLayer.substring(1);
+                if (yCoordStringFirstLayer[0] === "-")
+                    return yCoordStringFirstLayer.substring(1);
 
                 return yCoordStringFirstLayer;
             }
 
             return parseInt(yCoordStringSanitized());
-        }
-        
+        };
+
         // 62
         const xCoord = getXCoord();
         // 22
         const yCoord = getYCoord();
 
         const landObj = {
-            "xCoord": xCoord,
-            "yCoord": yCoord,
-            "urlOfLand": urlOfActiveWebsite
-        }
+            xCoord: xCoord,
+            yCoord: yCoord,
+            urlOfLand: urlOfActiveWebsite,
+        };
 
         // return landObj;
-    }
+    };
+
+    const copyUrl = async () => {
+        await navigator.clipboard.writeText(live_peer_data.livePeerServerUrl);
+    };
+
+    const copyKey = async () => {
+        await navigator.clipboard.writeText(data.streamKey);
+    };
 
     return (
         <Window_Content_WrapperCSS>
@@ -111,16 +134,18 @@ const WindowContent = () => {
                 <TopWrapperCSS>
                     <p>URL: </p>{" "}
                     <TopBoxCSS>
-                        <TopTextCSS>{live_peer_data.livePeerServerUrl}</TopTextCSS>
+                        <TopTextCSS>
+                            {live_peer_data.livePeerServerUrl}
+                        </TopTextCSS>
                     </TopBoxCSS>{" "}
-                    <CopyIconCSS src={CopyIcon} />
+                    <CopyIconCSS src={CopyIcon} onClick={copyUrl} />
                 </TopWrapperCSS>
                 <TopWrapperCSS>
                     <p>KEY: </p>
                     <TopBoxCSS>
                         <TopTextCSS>{data.streamKey}</TopTextCSS>
                     </TopBoxCSS>
-                    <CopyIconCSS src={CopyIcon} />
+                    <CopyIconCSS src={CopyIcon} onClick={copyKey} />
                 </TopWrapperCSS>
                 {/* Connect via OBS Studio:
                 <br />
@@ -135,8 +160,10 @@ const WindowContent = () => {
                 </p>
                 <p>Stream id: {data.id}</p> */}
             </h4>
-            <button onClick={getStreamUrl}>Play Stream</button>
-            <button onClick={getParcelData}>Get Coordinates of Parcel</button>
+            <ButtonCSS onClick={getStreamUrl}>Play Stream</ButtonCSS>
+            <ButtonCSS onClick={getParcelData}>
+                Get Coordinates of Parcel
+            </ButtonCSS>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
             <ShakaPlayer src={streamUrl} />
         </Window_Content_WrapperCSS>
@@ -155,7 +182,7 @@ const TopWrapperCSS = styled.div`
 `;
 
 const TopBoxCSS = styled.div`
-    width: 60%;
+    width: 67%;
     height: 2rem;
     border-style: solid;
     border-width: 0.2rem;
@@ -164,7 +191,7 @@ const TopBoxCSS = styled.div`
     margin-left: 0.3rem;
     display: flex;
     align-items: center;
-    color: F7FAFC;
+    color: rgba(247, 250, 252, 1);
     overflow-x: hidden;
     overflow-y: hidden;
 `;
@@ -172,12 +199,32 @@ const TopBoxCSS = styled.div`
 const TopTextCSS = styled.p`
     margin: 0;
     padding-left: 0.3rem;
-    color: F7FAFC;
+    color: rgba(247, 250, 252, 1);
 `;
 
 const CopyIconCSS = styled.img`
     object-fit: contain;
     margin: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.3);
+    }
+`;
+
+const ButtonCSS = styled.button`
+    height: 2rem;
+    color: rgba(247, 250, 252, 1);
+    background-color: rgba(97, 94, 220, 1);
+    border-radius: 8px;
+    margin-right: 1rem;
+    font-size: 16px;
+    letter-spacing: 0.05rem;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.03);
+    }
 `;
 
 export default WindowContent;
