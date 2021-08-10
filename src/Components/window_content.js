@@ -47,35 +47,18 @@ const WindowContent = () => {
         if (streamUrl === "") alert("stream is currently processing");
     };
 
-    const getParcelData = () => {
-        var urlOfActiveWebsite = window.location.href;
+    const getDecentralandParcelData = (urlOfActiveWebsite) => {
         const exampleUrl =
             "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
-        const exampleUrl1 = 
-            "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
 
-        const isDecentraland = urlOfActiveWebsite.substring(
-            0, "https://play.decentraland.org/?position=".length
-        ) === "https://play.decentraland.org/?position=";
-
-        const isCryptovoxels = urlOfActiveWebsite.substring(
-            0, "https://www.cryptovoxels.com/play?coords=".length
-        ) === "https://www.cryptovoxels.com/play?coords=";
-
-        if (!isDecentraland && !isCryptovoxels) {
-            alert("invalid website");
-
-            return;
-        }
-
-        const removedBaseUrl = () => {
+        const removeBaseUrl = () => {
             return urlOfActiveWebsite.substring(
                 "https://play.decentraland.org/".length
             );
         };
 
         // ?position=62%2C22&realm=dg-honey
-        const subUrl = removedBaseUrl();
+        const subUrl = removeBaseUrl();
 
         const getXCoord = () => {
             const positionIndex = subUrl.indexOf("position");
@@ -116,13 +99,66 @@ const WindowContent = () => {
         // 22
         const yCoord = getYCoord();
 
-        const landObj = {
+        return {
             xCoord: xCoord,
             yCoord: yCoord,
             urlOfLand: urlOfActiveWebsite,
         };
+    };
 
-        // return landObj;
+    const getCryptovoxelsParcelData = (urlOfActiveWebsite) => {
+        const exampleUrl1 = 
+            "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
+
+        const removeBaseUrl = () => {
+            return urlOfActiveWebsite.substring(
+                "https://www.cryptovoxels.com/".length
+            );
+        };
+
+        // play?coords=S@258E,336N,1.5F
+        const subUrl = removeBaseUrl();
+
+        const getCoordData = () => {
+            const startIndex = subUrl.indexOf("play?coords=");
+
+            return subUrl.substring(startIndex + "play?coords=".length);
+        }
+
+        return {
+            coordData: getCoordData(),
+            urlOfLand: urlOfActiveWebsite
+        }
+    };
+
+    const getParcelData = () => {
+        var urlOfActiveWebsite = window.location.href;
+        urlOfActiveWebsite = "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
+
+        const isDecentraland = urlOfActiveWebsite.substring(
+            0, "https://play.decentraland.org/?position=".length
+        ) === "https://play.decentraland.org/?position=";
+
+        const isCryptovoxels = urlOfActiveWebsite.substring(
+            0, "https://www.cryptovoxels.com/play?coords=".length
+        ) === "https://www.cryptovoxels.com/play?coords=";
+
+        if (!isDecentraland && !isCryptovoxels) {
+            alert("invalid website");
+
+            return;
+        }
+
+        var landObj = null;
+        if (isDecentraland) {
+            landObj = getDecentralandParcelData(urlOfActiveWebsite);
+            
+            return;
+        }
+
+        landObj = getCryptovoxelsParcelData(urlOfActiveWebsite);
+        console.log(landObj);
+        return; // return landObj
     };
 
     const copyUrl = async () => {
