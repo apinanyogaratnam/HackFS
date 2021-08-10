@@ -255,12 +255,12 @@ const CopyIconCSS = styled.img`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     &:hover {
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
 `;
 
 const ButtonCSS = styled.button`
-    height: 2rem;
+    height: 1.5rem;
     color: rgba(247, 250, 252, 1);
     background-color: rgba(97, 94, 220, 1);
     border-radius: 8px 8px 0px 0px;
