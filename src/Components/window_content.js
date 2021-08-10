@@ -133,7 +133,6 @@ const WindowContent = () => {
 
     const getParcelData = () => {
         var urlOfActiveWebsite = window.location.href;
-        urlOfActiveWebsite = "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
 
         const isDecentraland = urlOfActiveWebsite.substring(
             0, "https://play.decentraland.org/?position=".length
