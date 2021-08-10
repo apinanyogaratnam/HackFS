@@ -160,6 +160,10 @@ const WindowContent = () => {
         return; // return landObj
     };
 
+    const openWindow = () => {
+        chrome.windows.update(windowId, { state: "fullscreen" })
+    };
+
     const copyUrl = async () => {
         await navigator.clipboard.writeText(live_peer_data.livePeerServerUrl);
     };
@@ -204,6 +208,7 @@ const WindowContent = () => {
             <ButtonCSS onClick={getParcelData}>
                 Get Coordinates
             </ButtonCSS>
+            <ButtonCSS onClick={openWindow}>Open window</ButtonCSS>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
             <ShakaPlayer src={streamUrl} />
         </Window_Content_WrapperCSS>
