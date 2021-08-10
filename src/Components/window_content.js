@@ -51,13 +51,18 @@ const WindowContent = () => {
         var urlOfActiveWebsite = window.location.href;
         const exampleUrl =
             "https://play.decentraland.org/?position=62%2C22&realm=dg-honey";
+        const exampleUrl1 = 
+            "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
 
-        if (
-            urlOfActiveWebsite.substring(
-                0,
-                "https://play.decentraland.org/?position=".length
-            ) !== "https://play.decentraland.org/?position="
-        ) {
+        const isDecentraland = urlOfActiveWebsite.substring(
+            0, "https://play.decentraland.org/?position=".length
+        ) === "https://play.decentraland.org/?position=";
+
+        const isCryptovoxels = urlOfActiveWebsite.substring(
+            0, "https://www.cryptovoxels.com/play?coords=".length
+        ) === "https://www.cryptovoxels.com/play?coords=";
+
+        if (!isDecentraland && !isCryptovoxels) {
             alert("invalid website");
 
             return;
