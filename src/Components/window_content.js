@@ -107,7 +107,7 @@ const WindowContent = () => {
     };
 
     const getCryptovoxelsParcelData = (urlOfActiveWebsite) => {
-        const exampleUrl1 = 
+        const exampleUrl1 =
             "https://www.cryptovoxels.com/play?coords=S@258E,336N,1.5F";
 
         const removeBaseUrl = () => {
@@ -123,24 +123,28 @@ const WindowContent = () => {
             const startIndex = subUrl.indexOf("play?coords=");
 
             return subUrl.substring(startIndex + "play?coords=".length);
-        }
+        };
 
         return {
             coordData: getCoordData(),
-            urlOfLand: urlOfActiveWebsite
-        }
+            urlOfLand: urlOfActiveWebsite,
+        };
     };
 
     const getParcelData = () => {
         var urlOfActiveWebsite = window.location.href;
 
-        const isDecentraland = urlOfActiveWebsite.substring(
-            0, "https://play.decentraland.org/?position=".length
-        ) === "https://play.decentraland.org/?position=";
+        const isDecentraland =
+            urlOfActiveWebsite.substring(
+                0,
+                "https://play.decentraland.org/?position=".length
+            ) === "https://play.decentraland.org/?position=";
 
-        const isCryptovoxels = urlOfActiveWebsite.substring(
-            0, "https://www.cryptovoxels.com/play?coords=".length
-        ) === "https://www.cryptovoxels.com/play?coords=";
+        const isCryptovoxels =
+            urlOfActiveWebsite.substring(
+                0,
+                "https://www.cryptovoxels.com/play?coords=".length
+            ) === "https://www.cryptovoxels.com/play?coords=";
 
         if (!isDecentraland && !isCryptovoxels) {
             alert("invalid website");
@@ -151,7 +155,7 @@ const WindowContent = () => {
         var landObj = null;
         if (isDecentraland) {
             landObj = getDecentralandParcelData(urlOfActiveWebsite);
-            
+
             return;
         }
 
@@ -170,20 +174,20 @@ const WindowContent = () => {
 
     return (
         <Window_Content_WrapperCSS>
-            <h4 className="text">
+            <>
                 <TopWrapperCSS>
-                    <p>URL: </p>{" "}
+                    <TopBoxTitleCSS>URL: </TopBoxTitleCSS>
                     <TopBoxCSS>
-                        <TopTextCSS>
+                        <TopInnerTextCSS>
                             {live_peer_data.livePeerServerUrl}
-                        </TopTextCSS>
-                    </TopBoxCSS>{" "}
+                        </TopInnerTextCSS>
+                    </TopBoxCSS>
                     <CopyIconCSS src={CopyIcon} onClick={copyUrl} />
                 </TopWrapperCSS>
                 <TopWrapperCSS>
-                    <p>KEY: </p>
+                    <TopBoxTitleCSS>KEY: </TopBoxTitleCSS>
                     <TopBoxCSS>
-                        <TopTextCSS>{data.streamKey}</TopTextCSS>
+                        <TopInnerTextCSS>{data.streamKey}</TopInnerTextCSS>
                     </TopBoxCSS>
                     <CopyIconCSS src={CopyIcon} onClick={copyKey} />
                 </TopWrapperCSS>
@@ -199,11 +203,9 @@ const WindowContent = () => {
                     /index.m3u8
                 </p>
                 <p>Stream id: {data.id}</p> */}
-            </h4>
+            </>
             <ButtonCSS onClick={getStreamUrl}>Play</ButtonCSS>
-            <ButtonCSS onClick={getParcelData}>
-                Get Coordinates
-            </ButtonCSS>
+            <ButtonCSS onClick={getParcelData}>Get Coordinates</ButtonCSS>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
             <ShakaPlayer src={streamUrl} />
         </Window_Content_WrapperCSS>
@@ -221,6 +223,11 @@ const TopWrapperCSS = styled.div`
     flex-direction: row;
 `;
 
+const TopBoxTitleCSS = styled.p`
+    align-self: center;
+    font-weight: bold;
+`;
+
 const TopBoxCSS = styled.div`
     width: 67%;
     height: 2rem;
@@ -236,7 +243,7 @@ const TopBoxCSS = styled.div`
     overflow-y: hidden;
 `;
 
-const TopTextCSS = styled.p`
+const TopInnerTextCSS = styled.p`
     margin: 0;
     padding-left: 0.3rem;
     color: rgba(247, 250, 252, 1);
@@ -256,12 +263,15 @@ const ButtonCSS = styled.button`
     height: 2rem;
     color: rgba(247, 250, 252, 1);
     background-color: rgba(97, 94, 220, 1);
-    border-radius: 8px;
+    border-radius: 8px 8px 0px 0px;
     margin-right: 1rem;
     font-size: 16px;
     letter-spacing: 0.05rem;
     font-weight: bold;
     transition: all 0.2s ease-in-out;
+    text-align: center;
+    padding-inline: 0.5rem;
+
     &:hover {
         transform: scale(1.03);
     }
