@@ -3,7 +3,14 @@
 ETH Global's HackFS
 
 ## Description
-
+Upon opening the browser extension, you are presented with a URL and a KEY. <br/>
+These are the credentials needed to plug into OBS. Settings->Stream then for <br/>
+server, put in URL and for stream key, put in KEY. This will allow you to start <br/>
+ your stream and end your stream. After the stream processes which can take <br/>
+ around 5 minutes, the stream can be played by clicking Play Stream. To store <br/>
+ the coordinates, click Get Coordinates which will pull the coordinates from <br/>
+ the url of the metaverse you are playing in. Currently supported for <br/>
+ decentraland and cryptovoxels. <br/>
 
 ## Visuals
 ![image of UI](current_UI.png)
