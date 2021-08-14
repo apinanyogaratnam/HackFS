@@ -36,6 +36,8 @@ server, put in URL and for stream key, put in KEY. This will allow you to start 
 
 [Styled components Repo](https://github.com/styled-components/styled-components)
 
+[Stream in-browser solution](https://github.com/carrabre/landpeer-stream)
+
 ## How to run locally:
 ### 1. `git clone https://github.com/the-metaverse/hackathon.git`
 ### 2. change directory to hackathon
