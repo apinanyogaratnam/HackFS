@@ -42,6 +42,8 @@ server, put in URL and for stream key, put in KEY. This will allow you to start 
 ### 3. create livepeer api key
 ### 4. `npm i`
 ### 5. `npm start`
+### 6. change directory to landpeer-stream
+### 7. `npm run dev`
 
 TODO: 
 - change text to link (visit site to set up OBS)
