@@ -204,9 +204,13 @@ const WindowContent = () => {
                 </p>
                 <p>Stream id: {data.id}</p> */}
             </>
+            <ButtonCSS
+                onClick={() => window.open("http://localhost:3001/", "_blank")}
+            >
+                Record
+            </ButtonCSS>
             <ButtonCSS onClick={getStreamUrl}>Play</ButtonCSS>
             <ButtonCSS onClick={getParcelData}>Get Coordinates</ButtonCSS>
-            <ButtonCSS onClick={() => window.open("http://localhost:3001/", "_blank")}>In Browser Recording</ButtonCSS>
             {/* <VideoPlayer playsInLine src="https://mdw-cdn.livepeer.com/recordings/9ffba687-6059-4aa3-8d12-0235a79701aa/source.mp4" /> */}
             <ShakaPlayer src={streamUrl} />
         </Window_Content_WrapperCSS>
