@@ -2,6 +2,9 @@
 ## WeMeta parcel streams integration with livepeer
 ETH Global's HackFS
 
+## Description
+
+
 ## Visuals
 ![image of UI](current_UI.png)
 ![image of UI](current_UI_1.png)
