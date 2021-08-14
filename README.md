@@ -10,7 +10,9 @@ server, put in URL and for stream key, put in KEY. This will allow you to start 
  around 5 minutes, the stream can be played by clicking Play Stream. To store <br/>
  the coordinates, click Get Coordinates which will pull the coordinates from <br/>
  the url of the metaverse you are playing in. Currently supported for <br/>
- decentraland and cryptovoxels. <br/>
+ decentraland and cryptovoxels. The button for in browser streaming is an <br/>
+ alternate way to stream straight from your browser if OBS is something <br/>
+ you don't want to use. <br/>
 
 ## Visuals
 ![image of UI](current_UI.png)
