@@ -19,6 +19,7 @@ server, put in URL and for stream key, put in KEY. This will allow you to start 
 ![image of UI](current_UI_3.png)
 ![image of UI](current_UI_4.png)
 ![image of UI](current_UI_5.png)
+![image of UI](current_UI_6.png)
 
 
 [Boiler Plate Code Repo](https://github.com/upmostly/react-chrome-extension.git)
