@@ -43,6 +43,7 @@ const WindowContent = () => {
         }
 
         setStreamUrl(listOfAllStreams.data[0].mp4Url);
+        console.log(listOfAllStreams.data[0].mp4Url);
 
         if (streamUrl === "") alert("stream is currently processing");
     };
