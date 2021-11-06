@@ -1,4 +1,5 @@
-# hackathon
+# HackFS 2021 Hack
+
 ## WeMeta parcel streams integration with livepeer
 ETH Global's HackFS
 
