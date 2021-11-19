@@ -2,6 +2,7 @@
 
 ## WeMeta parcel streams integration with livepeer
 ETH Global's HackFS
+https://showcase.ethglobal.com/hackfs2021/landpeer
 
 ## Description
 Upon opening the browser extension, you are presented with a URL and a KEY. <br/>
